@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Lsong API Server
+  description: API list for LSONG.ORG
+  version: "v1"
+servers:
+  - url: https://api.lsong.org
+paths:
+  /fanyi:
+    get:
+      operationId: translate
+      summary: Translate a string to another language.
+      parameters:
+        - in: query
+          name: q
+          description: The text to translate.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/fanyiResponse"
+
+  /zhihu/top_search:
+    get:
+      operationId: top_search
+      summary: Get top search result of zhihu.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/zhihuTopSearchResponse"
+
+  /zhihu/top_questions:
+    get:
+      operationId: top_questions
+      summary: Get top questions of zhihu.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/zhihuTopQuestionsResponse"
+
+components:
+  schemas:
+    fanyiResponse:
+      type: object
+      properties:
+        translation:
+          type: array
+          items:
+            type: string
+        basic:
+          type: object
+        web:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: array
+                items:
+                  type: string
+
+    zhihuTopSearchResponse:
+      type: object
+      properties:
+        top_search:
+          type: object
+          words:
+            type: array
+            items:
+              type: object
+              properties:
+                display_query:
+                  type: string
+
+    zhihuTopQuestionsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              target:
+                type: object
+                properties:
+                  title:
+                    type: string
+                  url:
+                    type: string
+                  excerpt:
+                    type: string
+                  author:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      avatar_url:
+                        type: string

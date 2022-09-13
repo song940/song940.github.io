@@ -1,0 +1,1 @@
+import 'https://inbox.lsong.org/js/inbox.js';

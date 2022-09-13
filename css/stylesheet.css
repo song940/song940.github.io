@@ -1,0 +1,143 @@
+@import url(https://lsong.org/stylesheets/theme/default.css);
+@import url(https://lsong.org/stylesheets/base.css);
+@import url(https://lsong.org/stylesheets/util.css);
+@import url(https://lsong.org/stylesheets/grid.css);
+
+.header {
+  gap: 10px;
+  padding-top: 18px;
+  line-height: 48px;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: monospace;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color, #ddd);
+}
+
+.scrollbar-hide::-webkit-scrollbar,
+.header::-webkit-scrollbar {
+  display: none;
+}
+
+.header hr {
+  display: none;
+}
+
+.header .heading {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.header .logo {
+  width: 1.3em;
+  height: 1.3em;
+  font-size: inherit;
+  margin-right: 3px;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.3em;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #7928ca, #ff0080, green, #38bdf8);
+  background-image: linear-gradient(90deg, #2ca2b4, #5598de 24%, #7f87ff 45%, #f65aad 76%, #ec3d43);
+  background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+}
+
+/* navbar */
+
+/*
+nav a {
+  color: #333;
+  padding: 5px 8px;
+  border-radius: 5px;
+  text-decoration: none;
+
+  transition-property: background-color fill, stroke;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .15s;
+}
+
+nav a:hover {
+  background-color: rgba(243, 244, 246, 1);
+}
+
+*/
+
+/*  */
+
+.content {
+  overflow: hidden;
+}
+
+ul {
+  padding-left: 0;
+}
+
+footer {
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 480px) {
+
+  .header .heading b {
+    display: none;
+  }
+
+  /* 
+  .header {
+    padding: 1em !important;
+    line-height: 1em;
+  }
+  .header, .header > .heading {
+    flex-direction: column;
+  } 
+  */
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .content {
+    padding: 0px 10px;
+  }
+
+  .footer,
+  .header {
+    text-align: center;
+  }
+
+  .header {
+    top: 0px;
+    z-index: 99;
+    position: sticky;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(12px) saturate(1.25);
+    -webkit-backdrop-filter: blur(12px) saturate(1.25);
+  }
+
+  .header {
+    padding: 0 10px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  #subscribe {
+    text-align: center;
+  }
+}
