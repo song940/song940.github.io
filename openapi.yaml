@@ -6,6 +6,17 @@ info:
 servers:
   - url: https://api.lsong.org
 paths:
+  /now:
+    get:
+      operationId: now
+      summary: Get current time
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: number
   /fanyi:
     get:
       operationId: translate

@@ -1,9 +1,9 @@
 {
   "schema_version": "v1",
   "name_for_human": "Lsong AI",
-  "name_for_model": "LsongAI",
-  "description_for_human": "Lsong's AI Plugin",
-  "description_for_model": "Lsong's AI Plugin",
+  "name_for_model": "lsongai",
+  "description_for_human": "Lsong's AI provides AI-powered content like news, music, movies, weather, stories, memes, and more.",
+  "description_for_model": "Lsong's AI provides AI-powered content like news, music, movies, weather, stories, memes, and more.",
   "auth": {
     "type": "none"
   },
@@ -13,6 +13,6 @@
     "is_user_authenticated": false
   },
   "logo_url": "https://lsong.org/icon.png",
-  "contact_email": "support@lsong.org",
-  "legal_info_url": "https://lsong.org"
+  "contact_email": "openai@lsong.org",
+  "legal_info_url": "https://lsong.org/terms.html"
 }
