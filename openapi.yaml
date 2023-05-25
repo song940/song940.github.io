@@ -17,6 +17,25 @@ paths:
             text/plain:
               schema:
                 type: number
+  
+  /weather:
+    get:
+      operationId: weather
+      summary: Get weather information
+      parameters:
+        - in: query
+          name: q
+          description: The city name.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/weatherResponse"
   /fanyi:
     get:
       operationId: translate
@@ -82,6 +101,16 @@ components:
                 type: array
                 items:
                   type: string
+
+    weatherResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        weather:
+          type: array
+          items:
+            type: object
 
     zhihuTopSearchResponse:
       type: object
