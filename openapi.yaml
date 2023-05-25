@@ -85,6 +85,14 @@ paths:
     get:
       operationId: movies
       summary: Get recently released movies
+      parameters:
+        - in: query
+          name: limit
+          description: The number of movies to return
+          example: 3
+          required: false
+          schema:
+            type: number
       responses:
         "200":
           description: OK
