@@ -25,7 +25,8 @@ paths:
       parameters:
         - in: query
           name: q
-          description: The city name.
+          description: The city name in english
+          example: beijing
           required: true
           schema:
             type: string
