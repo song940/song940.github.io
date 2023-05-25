@@ -25,7 +25,7 @@ paths:
       parameters:
         - in: query
           name: q
-          description: The city name in english
+          description: The city name in english as lowercase.
           example: beijing
           required: true
           schema:
@@ -66,6 +66,13 @@ paths:
           required: true
           schema:
             type: string
+        - in: query
+          name: per_page
+          description: The number of images to return
+          example: 3
+          required: false
+          schema:
+            type: number
       responses:
         "200":
           description: OK
