@@ -17,7 +17,7 @@ paths:
             text/plain:
               schema:
                 type: number
-  
+
   /weather:
     get:
       operationId: weather
@@ -55,6 +55,24 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/fanyiResponse"
+  /unsplash:
+    get:
+      operationId: unsplash
+      summary: Search images and wallpapers from unsplash.
+      parameters:
+        - in: query
+          name: query
+          description: The text to search
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/unsplashResponse"
 
   /zhihu/top_search:
     get:
@@ -109,6 +127,14 @@ components:
         name:
           type: string
         weather:
+          type: array
+          items:
+            type: object
+
+    unsplashResponse:
+      type: object
+      properties:
+        results:
           type: array
           items:
             type: object
