@@ -12,7 +12,7 @@
     "url": "https://api.lsong.org/openapi.json",
     "is_user_authenticated": false
   },
-  "logo_url": "https://lsong.org/icon.svg",
+  "logo_url": "https://lsong.org/icon.png",
   "contact_email": "openai@lsong.org",
   "legal_info_url": "https://lsong.org/terms.html"
 }
