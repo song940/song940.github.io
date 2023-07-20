@@ -41,7 +41,9 @@ class Sidebar extends HTMLElement {
         <li><a href="/" >Link 1</a></li>
         <li><a href="/" >Link 1</a></li>
         </ul>
-      </div>`;
+      </div>
+      <div id="sidebar-handle" ></div>
+    `;
     
     const style = document.createElement('style');
     style.textContent = `
@@ -65,8 +67,7 @@ class Sidebar extends HTMLElement {
         width: 220px;
       }
 
-      .sidebar::after {
-        content: '';
+      #sidebar-handle {
         bottom: 0px;
         right: 0;
         width: 20px;
@@ -90,25 +91,21 @@ class Sidebar extends HTMLElement {
       }
 
       .sidebar li {
-        padding: 10px;
         border-radius: 5px;
-        cursor: pointer;
       }
       .sidebar li:hover {
         background-color: #444;
       }
 
       .sidebar a {
+        padding: 10px;
         text-decoration: none;
+        display: block;
       }
     `;
 
-    sidebar.addEventListener('click', e => {
-      console.log(e);
-      sidebar.classList.toggle("sidebar-hidden");
-    });
-
-    
+    const handle = sidebar.querySelector("#sidebar-handle");
+    handle.addEventListener('click', e => sidebar.classList.toggle("sidebar-hidden"));
 
     const resize = () => {
       document.body.clientWidth < 768 && sidebar.classList.add("sidebar-hidden");
@@ -117,6 +114,12 @@ class Sidebar extends HTMLElement {
 
     window.addEventListener('resize', resize);
     resize();
+
+    sidebar.addEventListener('click', e => {
+      if (e.target.nodeName !== 'A') return;
+      e.preventDefault();
+      console.log("sidebar click", e);
+    });
 
     // 将元素附加到 shadow dom
     shadow.appendChild(style);
