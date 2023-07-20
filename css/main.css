@@ -4,14 +4,12 @@
 
 body {
   display: flex;
-  flex-direction: row;
   overflow: hidden;
 }
 
 body > .container {
-  flex: 1 1 0%;
-  overflow: auto;
   width: 100%;
+  overflow: auto;
   max-height: 100vh;
 }
 
