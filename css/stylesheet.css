@@ -3,13 +3,13 @@
 @import url(https://lsong.org/stylesheets/util.css);
 @import url(https://lsong.org/stylesheets/grid.css);
 @import url(https://lsong.org/stylesheets/flex.css);
+@import url(https://lsong.org/stylesheets/input.css);
 
 .container {
   margin: 0 auto;
 }
 
 .header {
-  gap: 100px;
   line-height: 48px;
   display: flex;
   overflow-x: auto;
@@ -60,13 +60,13 @@
 
 /* navbar */
 
-nav {
+.navbar {
   gap: 10px;
-  width: 100%;
   display: flex;
+  align-items: center;
 }
 
-nav > * {
+.navbar > * {
  --link-color: #222;
   text-decoration: none;
 
@@ -75,12 +75,8 @@ nav > * {
   transition-duration: .15s;
 }
 
-nav a:hover {
+.navbar a:hover {
   color: green;
-}
-
-nav > .separator {
-  margin: auto;
 }
 
 .content {

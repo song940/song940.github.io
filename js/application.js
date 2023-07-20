@@ -2,8 +2,8 @@ import 'https://inbox.lsong.org/js/inbox.js';
 
 export class Header extends HTMLElement {
   connectedCallback() {
+    this.className = `header`;
     this.innerHTML = `
-     <header class="header scrollbar-hide">
       <a class="heading" href="/" >
         <img src="icon.svg" alt="" class="logo">
         <h1><b>Liu Song’s</b> Home</h1>
@@ -14,11 +14,9 @@ export class Header extends HTMLElement {
         <a href="//lsong.org/books">books</a>
         <a href="//lsong.org/music">music</a>
         <a href="//lsong.org/apps.html">apps</a>
-        <span class="separator" ></span>
         <x-inbox></x-inbox>
       </nav>
-      <hr />
-    </header>`;
+    `;
   }
 }
 
@@ -27,9 +25,9 @@ customElements.define('x-header', Header);
 class Sidebar extends HTMLElement {
   constructor() {
     super();
-    
+
     this.style.position = 'relative';
-    const shadow = this.attachShadow({mode: 'open'});
+    const shadow = this.attachShadow({ mode: 'open' });
     const sidebar = document.createElement('div');
     sidebar.setAttribute('class', 'sidebar');
     sidebar.innerHTML = `
@@ -43,7 +41,7 @@ class Sidebar extends HTMLElement {
         </ul>
       </div>
     `;
-    
+
     const style = document.createElement('style');
     style.textContent = `
 
