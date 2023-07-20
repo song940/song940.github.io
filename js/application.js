@@ -28,8 +28,8 @@ class Sidebar extends HTMLElement {
   constructor() {
     super();
     
+    this.style.position = 'relative';
     const shadow = this.attachShadow({mode: 'open'});
-    
     const sidebar = document.createElement('div');
     sidebar.setAttribute('class', 'sidebar');
     sidebar.innerHTML = `
@@ -42,15 +42,20 @@ class Sidebar extends HTMLElement {
         <li><a href="/" >Link 1</a></li>
         </ul>
       </div>
-      <div id="sidebar-handle" ></div>
     `;
     
     const style = document.createElement('style');
     style.textContent = `
+
+      x-sidebar {
+        position: relative;
+      }
+
       .sidebar {
         width: 260px;
         height: 100vh;
         color: white;
+        overflow: hidden;
         background-color: #333;
         position: relative;
         transition: width 0.5s ease;
@@ -61,28 +66,9 @@ class Sidebar extends HTMLElement {
       }
 
       .sidebar-inner {
-        overflow: hidden;
         padding: 10px;
         height: 100vh;
         width: 220px;
-      }
-
-      #sidebar-handle {
-        bottom: 0px;
-        right: 0;
-        width: 20px;
-        height: 50px;
-        display: block;
-        position: absolute;
-        cursor: pointer;
-        transform: translate(100%, -100%);
-        background-color: #333;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-      }
-
-      .sidebar a {
-        color: white;
       }
 
       .sidebar ul {
@@ -98,13 +84,29 @@ class Sidebar extends HTMLElement {
       }
 
       .sidebar a {
+        color: white;
         padding: 10px;
         text-decoration: none;
         display: block;
       }
+
+      #sidebar-handle {
+        bottom: 0px;
+        right: 0;
+        width: 20px;
+        height: 50px;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        background-color: #333;
+        transform: translate(100%, -100%);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
     `;
 
-    const handle = sidebar.querySelector("#sidebar-handle");
+    const handle = document.createElement('div');
+    handle.id = 'sidebar-handle';
     handle.addEventListener('click', e => sidebar.classList.toggle("sidebar-hidden"));
 
     const resize = () => {
@@ -121,11 +123,11 @@ class Sidebar extends HTMLElement {
       console.log("sidebar click", e);
     });
 
-    // 将元素附加到 shadow dom
     shadow.appendChild(style);
     shadow.appendChild(sidebar);
+    shadow.appendChild(handle);
+
   }
 }
 
-// 定义新元素
 customElements.define('x-sidebar', Sidebar);
