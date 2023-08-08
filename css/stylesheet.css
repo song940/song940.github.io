@@ -5,10 +5,6 @@
 @import url(https://lsong.org/stylesheets/flex.css);
 @import url(https://lsong.org/stylesheets/input.css);
 
-.container {
-  margin: 0 auto;
-}
-
 .header {
   line-height: 48px;
   display: flex;

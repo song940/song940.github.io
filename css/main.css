@@ -2,17 +2,6 @@
 
 /* basic */
 
-body {
-  display: flex;
-  overflow: hidden;
-}
-
-body > .container {
-  width: 100%;
-  overflow: auto;
-  max-height: 100vh;
-}
-
 .projects i {
   font-style: normal;
 }
