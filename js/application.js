@@ -1,4 +1,3 @@
-import 'https://inbox.lsong.org/js/inbox.js';
 
 export class Header extends HTMLElement {
   connectedCallback() {
