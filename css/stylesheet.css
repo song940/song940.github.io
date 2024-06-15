@@ -145,10 +145,6 @@ footer {
     -webkit-backdrop-filter: blur(12px) saturate(1.25);
   }
 
-  .content ul {
-    padding-left: 20px;
-  }
-
   #subscribe {
     text-align: center;
   }
